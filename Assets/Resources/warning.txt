@@ -1,0 +1,4 @@
+WARNING.txt
+
+/Assets/Resources is a SPECIAL folder in unity, as it is treated as the root when using Resources.Load(string path).
+However, this function might soon become depreciated and replaced by Resources.LoadAssetAtPath(string path), as this takes the UnityProject folder as the root instead.
