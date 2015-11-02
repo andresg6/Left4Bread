@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 459808}
   - 212: {fileID: 21246498}
   - 60: {fileID: 6037778}
+  - 114: {fileID: 11434410}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -49,6 +50,19 @@ PolygonCollider2D:
       - {x: .600000024, y: -.639999986}
       - {x: .639999986, y: -.639999986}
       - {x: .639999986, y: .639999986}
+--- !u!114 &11434410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49213ea79cc5e9c4aa63643cc3fafdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
+  angle: 0
 --- !u!212 &21246498
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,7 +95,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: range
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138604}
