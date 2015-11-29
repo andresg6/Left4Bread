@@ -4,18 +4,23 @@ using System.Collections;
 public class BasicEnemy : MonoBehaviour
 {
 
-    float speed = 10.0f;
+    float speed = 5.0f;
     
 
     // Update is called once per frame
     void Update()
     {
         BasicDetect detection = GameObject.Find("Enemy Vision 1").GetComponent<BasicDetect>();
-        if (detection.detected)
+
+        if (GameObject.FindWithTag("Player") != null)
         {
-            Transform player = GameObject.FindWithTag("Player").transform;
-            Movement(player);
+            if (detection.detected)
+            {
+                Transform player = GameObject.FindWithTag("Player").transform;
+                Movement(player);
+            }
         }
+        
     }
 
     void Movement(Transform player)
@@ -32,5 +37,18 @@ public class BasicEnemy : MonoBehaviour
             //transform.Translate(Vector2.MoveTowards(transform.position, player.position, 1));
             transform.position = Vector3.MoveTowards(new Vector3(transform.position.x, transform.position.y, transform.position.z), player.position, speed * Time.deltaTime);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Collider collider = GameObject.Find("Enemy Vision 1").gameObject.GetComponent<Collider>();
+        if (!collider.enabled)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                other.gameObject.SetActive(false);
+            }
+        }
+        
     }
 }

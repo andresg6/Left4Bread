@@ -34,4 +34,12 @@ public class AndrewPlayerControl : MonoBehaviour
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
     }
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 }
