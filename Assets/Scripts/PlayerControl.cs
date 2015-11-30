@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 
-    float speed = 5.0f;
+    public float speed = 5.0f;
 
 	// Update is called once per frame
 	void Update ()
