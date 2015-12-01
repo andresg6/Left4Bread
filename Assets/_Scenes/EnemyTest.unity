@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d3b41af523bacc4a920714ab0418dc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c267d9fe7eca23458f2e35e63e7a843, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &743034590
 Transform:
@@ -223,8 +223,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743034587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.97000027, y: -.150000006, z: 0}
-  m_LocalScale: {x: .592513978, y: .592514038, z: .592514038}
+  m_LocalPosition: {x: 9.42000008, y: .180000007, z: 0}
+  m_LocalScale: {x: .741180837, y: .704014182, z: .592514038}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -238,9 +238,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .0139369173, y: .00797285978}
+  m_Offset: {x: .0793180764, y: -.293024182}
   serializedVersion: 2
-  m_Size: {x: 6.01505613, y: 6.02410984}
+  m_Size: {x: 3.5830152, y: 3.5915451}
 --- !u!50 &743034592
 Rigidbody2D:
   serializedVersion: 2
@@ -256,7 +256,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &904982946
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +418,7 @@ GameObject:
   - 50: {fileID: 1051805578}
   - 61: {fileID: 1051805577}
   - 114: {fileID: 1051805576}
+  - 114: {fileID: 1051805582}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -509,6 +510,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1051805582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051805575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252f647de63288d4e8d5915434a6c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  angle: 0
+  speed: 2
+  seeTarget: 0
 --- !u!1 &1450880979
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   angle: 0
-  speed: 4
+  speed: 2
   seeTarget: 0
 --- !u!1 &1523422361
 GameObject:
@@ -798,8 +814,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1539188497}
   - 33: {fileID: 1539188496}
-  - 64: {fileID: 1539188495}
   - 23: {fileID: 1539188494}
+  - 61: {fileID: 1539188495}
   m_Layer: 0
   m_Name: TopWall
   m_TagString: Wall
@@ -831,18 +847,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1539188495
-MeshCollider:
+--- !u!61 &1539188495
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1539188493}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1}
 --- !u!33 &1539188496
 MeshFilter:
   m_ObjectHideFlags: 0
