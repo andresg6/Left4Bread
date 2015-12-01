@@ -15,12 +15,13 @@ public class LightDetect2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("RAWR");
             detected = true;
         }
     }
 
-    //void OnTriggerExit2D(Collider2D other)
-    //{
-    //    detected = false;
-    //}
+    void OnTriggerExit2D(Collider2D other)
+    {
+        detected = false;
+    }
 }

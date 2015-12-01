@@ -4,10 +4,8 @@ using System.Linq;
 
 public class ConeSearch2 : MonoBehaviour
 {
-
-    public float range;
-    public float angle;
     public float speed = 2.0f;
+    public bool detected = false;
 
     // Use this for initialization
     void Start()
@@ -18,16 +16,45 @@ public class ConeSearch2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         Transform player = GameObject.FindWithTag("Player").transform;
 
-        
-        LightDetect2 detect = GetComponentInChildren<LightDetect2>();
+        Light l = GetComponentInChildren<Light>();
+        float range = l.range;
+        float scope = l.spotAngle;
 
-        if (detect.detected)
+        Vector3 targetDir = player.position - transform.position;
+        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+
+        //Vector3 t = transform.eulerAngles;
+        //float angle2 = Mathf.Atan2(t.y, t.x) * Mathf.Rad2Deg;
+
+        //Debug.Log("Player: " + angle);
+        //Debug.Log("ENEMY: " + transform.rotation.z * 180);
+
+        float angle2 = transform.rotation.z * 180;
+        if (Vector3.Distance(transform.position, player.position) <= range)
+        {
+            if (angle <=angle2 + scope && angle >= angle2-scope)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position);
+
+                if (hit.collider != null)
+                {
+                    detected = true;
+                }
+            }
+        }
+
+        else
+        {
+            detected = false;
+        }
+
+        if (detected)
         {
             Movement(player);
         }
-
     }
 
     void Movement(Transform player)

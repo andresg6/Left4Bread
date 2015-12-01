@@ -376,8 +376,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1755137732}
-  - 60: {fileID: 1755137734}
   - 114: {fileID: 1755137733}
+  - 60: {fileID: 1755137734}
   m_Layer: 0
   m_Name: Detect
   m_TagString: Untagged
@@ -392,7 +392,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1755137731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75999999, y: 0, z: 0}
+  m_LocalPosition: {x: 1.77999997, y: -.0320000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 225377457}
@@ -422,11 +422,11 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 1.93717599, y: 1.43831408}
-      - {x: 2.25449395, y: .0775251314}
-      - {x: 1.89567041, y: -1.44299865}
-      - {x: -.350575805, y: -.386237055}
-      - {x: -1.21458173, y: -.0214725491}
+    - - {x: 1.88806844, y: 1.42394578}
+      - {x: .108649254, y: .637625694}
+      - {x: -1.20068431, y: .00833422132}
+      - {x: .418042421, y: -.728736281}
+      - {x: 1.87035418, y: -1.36602855}
 --- !u!1 &1762376407
 GameObject:
   m_ObjectHideFlags: 0
