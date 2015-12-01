@@ -6,11 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RollerBallWhite
+  m_Name: TestMaterial
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _LIGHTMAPPING_BAKED _LIGHTMAPPING_STATIC_LIGHTMAPS _UVPRIM_UV1
-    _UVSEC_UV1
-  m_LightmapFlags: 0
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -47,13 +46,6 @@ Material:
       data:
         first:
           name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Occlusion
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -108,14 +100,6 @@ Material:
         second: .5
       data:
         first:
-          name: _AlphaTestRef
-        second: .5
-      data:
-        first:
-          name: _Lightmapping
-        second: 0
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -125,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .200000003
+        second: .5
       data:
         first:
           name: _BumpScale
@@ -148,50 +132,18 @@ Material:
         second: 0
       data:
         first:
-          name: _EmissionScaleUI
-        second: 1
-      data:
-        first:
           name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _EmissionScale
-        second: 1
-      data:
-        first:
-          name: _DetailAlbedoMultiplier
-        second: 2
-      data:
-        first:
-          name: _UVPrim
-        second: 0
-      data:
-        first:
-          name: _DetailMode
         second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: .158620834, g: 0, b: 1, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .757391691, g: .128460184, b: .79411763, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .235294119, g: .235294119, b: .235294119, a: 1}
-      data:
-        first:
-          name: _SpecularColor
-        second: {r: .0588235259, g: .0588235259, b: .0588235259, a: 1}
-      data:
-        first:
-          name: _EmissionColorUI
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _EmissionColorWithMapUI
         second: {r: 1, g: 1, b: 1, a: 1}
