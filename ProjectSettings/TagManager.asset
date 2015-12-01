@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - Pickup
-  - Enemy
-=======
-  - Wall
-  - block
->>>>>>> refs/remotes/origin/master
+  tags: []
   layers:
   - Default
   - TransparentFX
