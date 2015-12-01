@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72bac522386901449b15bffc3b659dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!212 &743034589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -521,6 +522,7 @@ GameObject:
   - 50: {fileID: 1450880982}
   - 61: {fileID: 1450880985}
   - 114: {fileID: 1450880980}
+  - 114: {fileID: 1450880986}
   m_Layer: 0
   m_Name: Enemy(1)
   m_TagString: Untagged
@@ -612,6 +614,21 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &1450880986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450880979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252f647de63288d4e8d5915434a6c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  angle: 0
+  speed: 4
+  seeTarget: 0
 --- !u!1 &1523422361
 GameObject:
   m_ObjectHideFlags: 0
