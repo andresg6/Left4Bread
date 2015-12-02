@@ -11,8 +11,20 @@ public class ConeSearch2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            Transform player = GameObject.FindWithTag("Player").transform;
 
-        Transform player = GameObject.FindWithTag("Player").transform;
+            LightDetect2 l = GetComponentInChildren<LightDetect2>();
+
+            if (player != null)
+            {
+                if (l.detected)
+                {
+                    Movement(player);
+                }
+            }
+        }
 
         //Light l = GetComponentInChildren<Light>();
         //float range = l.range;
@@ -66,15 +78,7 @@ public class ConeSearch2 : MonoBehaviour
         //    detected = false;
         //}
 
-        LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
-        if (player != null)
-        {
-            if (l.detected)
-            {
-                Movement(player);
-            }
-        }
 
 
     }
