@@ -38,26 +38,26 @@ public class ConeSearch2 : MonoBehaviour
         //    {
         //        //RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position);
 
-                //Vector3 temp = range1.position;
-                //for (int i = 0; i < 100; i++)
-                //{
-                //    Debug.DrawLine(range2.position, temp);
-                //    RaycastHit2D hit = Physics2D.Linecast(range2.position, temp);
+        //Vector3 temp = range1.position;
+        //for (int i = 0; i < 100; i++)
+        //{
+        //    Debug.DrawLine(range2.position, temp);
+        //    RaycastHit2D hit = Physics2D.Linecast(range2.position, temp);
 
-                //    if (hit.collider != null)
-                //    {
-                //        if (hit.collider.tag == "Player")
-                //        {
-                //            detected = true;
-                //        }
-                //    }
+        //    if (hit.collider != null)
+        //    {
+        //        if (hit.collider.tag == "Player")
+        //        {
+        //            detected = true;
+        //        }
+        //    }
 
-                //    temp = new Vector3(temp.x, temp.y - .01f, temp.z);
-                //}
+        //    temp = new Vector3(temp.x, temp.y - .01f, temp.z);
+        //}
 
-               
 
-                    
+
+
         //    }
         //}
 
@@ -72,6 +72,39 @@ public class ConeSearch2 : MonoBehaviour
         {
             Movement(player);
         }
+
+        else
+        {
+            //Vector2 Move = Vector2.right;
+
+            //transform.Translate(Move * 1f * Time.deltaTime);
+            //transform.position = new Vector2(transform.position.y);
+
+            //if (transform.position.x > 10f)
+            //{
+            //    //transform.Translate(transform.position.x - .01f, transform.position.y, transform.position.z);
+
+            //    //float angle = Mathf.Atan2(0, -1) * Mathf.Rad2Deg;
+            //    Debug.Log("LEFT");
+            //    //Quaternion q = Quaternion.AngleAxis(180, Vector3.forward);
+            //    //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            //    Move = Vector2.right;
+
+            //}
+
+            //    if (transform.position.x < 3f)
+            //    {
+            //        Debug.Log("Right");
+            //        //Quaternion q = Quaternion.AngleAxis(90, Vector3.forward);
+            //        //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            //        Move = Vector2.left;
+            //        //transform.Translate(transform.position.x + .01f, transform.position.y, transform.position.z);
+            //        //float angle = Mathf.Atan2(0, 1) * Mathf.Rad2Deg;
+            //        //Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            //        //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            //    }
+            //}
+        }
     }
 
     void Movement(Transform player)
@@ -85,4 +118,12 @@ public class ConeSearch2 : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        other.gameObject.SetActive(false);
+    //    }
+    //}
 }
