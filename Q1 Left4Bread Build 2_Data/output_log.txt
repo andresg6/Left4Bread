@@ -1,0 +1,37 @@
+Mono path[0] = 'C:/Users/Andrew/OneDrive/Documents/Game Stuff/Left4Bread/Q1 Left4Bread Build 2_Data/Managed'
+Mono path[1] = 'C:/Users/Andrew/OneDrive/Documents/Game Stuff/Left4Bread/Q1 Left4Bread Build 2_Data/Mono'
+Mono config path = 'C:/Users/Andrew/OneDrive/Documents/Game Stuff/Left4Bread/Q1 Left4Bread Build 2_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Andrew/OneDrive/Documents/Game Stuff/Left4Bread/Q1 Left4Bread Build 2_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55216
+Broadcasting "[IP] 169.254.83.152 [Port] 55216 [Flags] 3 [Guid] 931820613 [EditorId] 1498767426 [Version] 1048832 [Id] WindowsPlayer(PuppyChau) [Debug] 1" to [169.254.255.255:54997]...
+Waiting for connection from host on [169.254.83.152:55216]...
+Timed out. Continuing without host connection.
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56613
+PlayerConnection already initialized - listening to [169.254.83.152:55216]
+Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7660G (ID=0x9900)
+    Vendor:   ATI
+    VRAM:     479 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.104 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Andrew\OneDrive\Documents\Game Stuff\Left4Bread\Q1 Left4Bread Build 2_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1e4c -> priority: 1 
