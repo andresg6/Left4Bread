@@ -3,8 +3,13 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 
-public float speed;
+    public float speed;
 
+
+        //void Start()
+        //{
+        //    Physics2D.IgnoreLayerCollision(0, 1, true);
+        //}
 	// Update is called once per frame
 	void Update ()
     {

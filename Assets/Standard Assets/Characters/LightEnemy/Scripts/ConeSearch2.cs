@@ -68,43 +68,15 @@ public class ConeSearch2 : MonoBehaviour
 
         LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
-        if (l.detected)
+        if (player != null)
         {
-            Movement(player);
+            if (l.detected)
+            {
+                Movement(player);
+            }
         }
 
-        else
-        {
-            //Vector2 Move = Vector2.right;
 
-            //transform.Translate(Move * 1f * Time.deltaTime);
-            //transform.position = new Vector2(transform.position.y);
-
-            //if (transform.position.x > 10f)
-            //{
-            //    //transform.Translate(transform.position.x - .01f, transform.position.y, transform.position.z);
-
-            //    //float angle = Mathf.Atan2(0, -1) * Mathf.Rad2Deg;
-            //    Debug.Log("LEFT");
-            //    //Quaternion q = Quaternion.AngleAxis(180, Vector3.forward);
-            //    //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            //    Move = Vector2.right;
-
-            //}
-
-            //    if (transform.position.x < 3f)
-            //    {
-            //        Debug.Log("Right");
-            //        //Quaternion q = Quaternion.AngleAxis(90, Vector3.forward);
-            //        //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            //        Move = Vector2.left;
-            //        //transform.Translate(transform.position.x + .01f, transform.position.y, transform.position.z);
-            //        //float angle = Mathf.Atan2(0, 1) * Mathf.Rad2Deg;
-            //        //Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            //        //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            //    }
-            //}
-        }
     }
 
     void Movement(Transform player)
@@ -119,11 +91,11 @@ public class ConeSearch2 : MonoBehaviour
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        other.gameObject.SetActive(false);
-    //    }
-    //}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
