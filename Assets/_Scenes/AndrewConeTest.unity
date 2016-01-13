@@ -318,25 +318,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 120192, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_Layer
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 123910, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_Layer
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 187844, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_Layer
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 115738, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_Layer
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6087568, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 187844, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 115738, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 197712, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5016230, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &508445252
@@ -852,7 +865,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 695664523}
   - 68: {fileID: 695664524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1066,7 +1079,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 867768217}
   - 68: {fileID: 867768216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1126,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1148,7 +1161,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1373948438}
   - 68: {fileID: 1373948439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,7 +1313,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1579233352}
   - 68: {fileID: 1579233351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1349,7 +1362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &1988051182
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1425,7 +1438,7 @@ GameObject:
   - 33: {fileID: 1990988166}
   - 64: {fileID: 1990988165}
   - 23: {fileID: 1990988164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

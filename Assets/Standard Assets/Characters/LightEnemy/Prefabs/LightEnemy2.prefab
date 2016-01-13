@@ -8,13 +8,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Range2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &120192
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 446556}
   - 108: {fileID: 10875890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 60: {fileID: 6087568}
   - 114: {fileID: 11467500}
   - 50: {fileID: 5016230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,13 +57,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Range1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &197712
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - 114: {fileID: 11469190}
   - 50: {fileID: 5005018}
   - 60: {fileID: 6075592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,9 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  range1: {fileID: 435238}
-  range2: {fileID: 485510}
-  range3: {fileID: 0}
 --- !u!212 &21220868
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -326,6 +323,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
