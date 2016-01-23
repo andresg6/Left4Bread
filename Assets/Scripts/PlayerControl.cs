@@ -6,16 +6,25 @@ public class PlayerControl : MonoBehaviour {
 
     public float speed;
     public float range;
+
+    public bool isWalking;
+    public bool isRunning;
     public bool loud = false;
 
-
+    private Animator anim;
         //void Start()
         //{
         //    Physics2D.IgnoreLayerCollision(0, 1, true);
         //}
-	// Update is called once per frame
+	void Start()
+    {
+        anim = this.GetComponent<Animator>();
+    }
+
 	void FixedUpdate ()
     {
+        isWalking = anim.GetBool("isWalking");
+        isRunning = anim.GetBool("isRunning");
         Collider2D[] enemiesnearby = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Enemies").ToArray();
         if (loud)
         {
