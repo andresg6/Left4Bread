@@ -568,11 +568,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.1739998
+      value: 11.0085402
       objectReference: {fileID: 0}
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.08022952
+      value: -.376999617
       objectReference: {fileID: 0}
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_LocalPosition.z
@@ -588,11 +588,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .687277257
+      value: .992662013
       objectReference: {fileID: 0}
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .726395249
+      value: -.120922178
       objectReference: {fileID: 0}
     - target: {fileID: 419584, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_RootOrder
@@ -602,6 +602,26 @@ Prefab:
       propertyPath: detected
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 10849998, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10849998, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10849998, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 10849998, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10849998, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: c7d5178a7b1aa0145b5d3101a512593d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_IsPrefabParent: 0
@@ -930,7 +950,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df2607f8d15c0734bb15cb1b0b914a56, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
