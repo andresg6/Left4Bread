@@ -1,13 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class PlayerControl : MonoBehaviour {
 
-public float speed;
+    public float speed;
+    public float range;
 
-	// Update is called once per frame
-	void Update ()
+    public bool isWalking;
+    public bool isRunning;
+    public bool loud = false;
+
+    private Animator anim;
+        //void Start()
+        //{
+        //    Physics2D.IgnoreLayerCollision(0, 1, true);
+        //}
+	void Start()
     {
+        anim = this.GetComponent<Animator>();
+    }
+
+	void FixedUpdate ()
+    {
+        isWalking = anim.GetBool("isWalking");
+        isRunning = anim.GetBool("isRunning");
+        Collider2D[] enemiesnearby = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Enemies").ToArray();
+        if (loud)
+        {
+            foreach (Collider2D enemy in enemiesnearby)
+            {
+                Vector3 targetDir = transform.position - enemy.transform.position;
+                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, q, Time.deltaTime * speed);
+            }
+        }
         Movement();	
 	}
 
