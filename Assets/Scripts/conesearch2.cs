@@ -2,46 +2,50 @@
 using System.Collections;
 using System.Linq;
 
-public class conesearch2: MonoBehaviour
+public class ConeSearch2 : Character
 {
-
-    public float range;
-    public float angle;
     public float speed = 2.0f;
-    public bool seeTarget = false;
+    public float range = 5.0f;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Transform player = GameObject.FindWithTag("Player").transform;
-        Collider2D[] PlayersNearMe = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Player").ToArray();
-        if (PlayersNearMe.GetLength(0) > 0)
+        if (GameObject.FindWithTag("Player") != null)
         {
-            seeTarget = true;
-        }
-        else
-        {
-            seeTarget = false;
-        }
+            Transform player = GameObject.FindWithTag("Player").transform;
 
-        if (seeTarget)
-        {
-            Movement(player);
-        }
+            LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
+                if (player != null)
+                {
+                    if (l.detected)
+                    {
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                        if (hit.collider.tag == "Player")
+                        {
+                            Movement(player);
+                        }
+                    }
+                }
+            }
     }
 
     void Movement(Transform player)
     {
         if (Vector2.Distance(transform.position, player.position) > 1f)
         {
-            transform.position = Vector2.MoveTowards(new Vector3(transform.position.x, transform.position.y), player.position, speed * Time.deltaTime);
+            Vector3 targetDir = player.position - transform.position;
+            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        other.gameObject.SetActive(false);
+    //    }
+    //}
 }

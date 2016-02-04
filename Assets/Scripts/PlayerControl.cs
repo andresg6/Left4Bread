@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Linq;
 
-public class PlayerControl : MonoBehaviour {
-
+public class PlayerControl : Character
+{
     public float speed;
     public float range;
 
@@ -16,8 +16,9 @@ public class PlayerControl : MonoBehaviour {
         //{
         //    Physics2D.IgnoreLayerCollision(0, 1, true);
         //}
-	void Start()
+	public override void Start()
     {
+        base.Start();
         anim = this.GetComponent<Animator>();
     }
 
@@ -59,6 +60,16 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+    }
+
+    public override void OnCollision(Character other)
+    {
+        if (this.gameObject.layer == LayerMask.NameToLayer("Test"))
+        {
+            float damage = other.collisionDamage;
+            Debug.Log(damage);
+            health -= damage;
         }
     }
 }
