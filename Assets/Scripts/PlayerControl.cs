@@ -25,6 +25,14 @@ public class PlayerControl : MonoBehaviour {
         anim = this.GetComponent<Animator>();
     }
 
+    void onCollisionStay(Collision2D col)
+    {
+        if (col.gameObject.tag == "Puddles")
+        {
+            splashy = true;
+        }
+    }
+
 	void FixedUpdate ()
     {
 
@@ -102,9 +110,14 @@ public class PlayerControl : MonoBehaviour {
         direction.x = x;
         direction.y = y;
         transform.Translate(direction * speed * Time.deltaTime);
-        if (splashy)
+        if (splashy && isWalking)
         {
             range = 10;
+            splashy = false;
+        }
+        if (splashy && isRunning)
+        {
+            range = 15;
             splashy = false;
         }
     }
