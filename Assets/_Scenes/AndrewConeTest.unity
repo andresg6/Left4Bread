@@ -324,6 +324,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
   m_IsPrefabParent: 0
@@ -620,7 +624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430118, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 164840, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_TagString
@@ -652,6 +656,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6019392, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+    - {fileID: 11451740, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1373948437
@@ -700,6 +705,24 @@ EdgeCollider2D:
 GameObject:
   m_PrefabParentObject: {fileID: 164840, guid: 382d651e79a1e64469199ee738355fce, type: 2}
   m_PrefabInternal: {fileID: 932356516}
+--- !u!114 &1474058499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474058495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8bdfd32066d5049b7d2e9713546374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2120080750}
+  health: 0
+  maxHealth: 0
+  team: 0
+  collisionDamage: 1
+  speed: 5
+  range: 5
 --- !u!60 &1474058501
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1103,6 +1126,12 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 187954, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
   m_PrefabInternal: {fileID: 239454874}
+--- !u!114 &2120080750 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c,
+    type: 2}
+  m_PrefabInternal: {fileID: 239454874}
+  m_Script: {fileID: 11500000, guid: e72bac522386901449b15bffc3b659dc, type: 3}
 --- !u!68 &2120080752
 EdgeCollider2D:
   m_ObjectHideFlags: 0

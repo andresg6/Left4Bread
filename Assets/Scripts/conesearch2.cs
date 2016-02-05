@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-public class ConeSearch2 : Character
+public class conesearch2 : Character
 {
     public float speed = 2.0f;
     public float range = 5.0f;
@@ -15,18 +15,18 @@ public class ConeSearch2 : Character
 
             LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
-                if (player != null)
+            if (player != null)
+            {
+                if (l.detected)
                 {
-                    if (l.detected)
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                    if (hit.collider.tag == "Player")
                     {
-                        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 99999, LayerMask.GetMask("Test"));
-                        if (hit.collider.tag == "Player")
-                        {
-                            Movement(player);
-                        }
+                        Movement(player);
                     }
                 }
             }
+        }
     }
 
     void Movement(Transform player)
