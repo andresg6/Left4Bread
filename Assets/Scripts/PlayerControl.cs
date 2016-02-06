@@ -10,6 +10,10 @@ public class PlayerControl : Character
     public bool isWalking;
     public bool isRunning;
     public bool loud = false;
+    public bool splashy = false;
+    int x;
+    int y;
+    Vector2 direction;
 
     private Animator anim;
         //void Start()
@@ -24,8 +28,7 @@ public class PlayerControl : Character
 
 	void FixedUpdate ()
     {
-        isWalking = anim.GetBool("isWalking");
-        isRunning = anim.GetBool("isRunning");
+
         Collider2D[] enemiesnearby = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Enemies").ToArray();
         if (loud)
         {
@@ -42,24 +45,68 @@ public class PlayerControl : Character
 
     void Movement()
     {
+        isWalking = false;
+        isRunning = false;
+        //Vector2 movement;
+        x = 0;
+        y = 0;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+
+        }
+   
+        
         if(Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            //transform.Translate(Vector2.right * speed * Time.deltaTime);
+            x++; 
+            isWalking = true;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            ///transform.Translate(Vector2.left * speed * Time.deltaTime);
+            x--;
+            isWalking = true;
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+           // transform.Translate(Vector2.up * speed * Time.deltaTime);
+            y++;
+            isWalking = true;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            //transform.Translate(Vector2.down * speed * Time.deltaTime);
+            y--;
+            isWalking = true;
+        }
+        if (isWalking && isRunning)
+        {
+            //player is holding down shift and W,A,S, or D
+            isWalking = false;
+            speed = 10;
+            range = 10;
+            
+        }
+        if (isWalking)
+        {
+            //player is *not* holding down shift but is holding W,A,S,or D 
+            speed = 5;
+            range = 5;
+        }
+
+        direction.x = x;
+        direction.y = y;
+        transform.Translate(direction * speed * Time.deltaTime);
+        if (splashy)
+        {
+            range = 10;
+            splashy = false;
         }
     }
 
