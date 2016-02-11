@@ -13,16 +13,6 @@ public class LightDetect2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.gameObject.tag == "Player")
-        //{
-        //    RaycastHit2D hit = Physics2D.Linecast(transform.position, other.transform.position);
-
-        //    if (hit.collider.tag == "Player")
-        //    {
-        //        detected = true;
-        //    }
-        //}
-
         if (other.gameObject.tag == "Player")
         {
             detected = true;
