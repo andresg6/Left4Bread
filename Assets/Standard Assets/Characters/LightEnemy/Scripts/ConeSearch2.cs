@@ -6,6 +6,9 @@ public class ConeSearch2 : MonoBehaviour
 {
     public float speed = 2.0f;
     public float range = 5.0f;
+    bool alert = false;
+    float alertPercentage = 0.0f;
+    float alertStep = 10.0f;
 
     void FixedUpdate()
     {
@@ -17,13 +20,31 @@ public class ConeSearch2 : MonoBehaviour
 
                 if (player != null)
                 {
+                    Debug.Log(alertPercentage);
                     if (l.detected)
                     {
                         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 99999, LayerMask.GetMask("Test"));
                         if (hit.collider.tag == "Player")
                         {
-                            Movement(player);
+                            alert = true;
+                            alertPercentage = 100.0f;
+
+                            // Movement(player);
                         }
+                    }
+                    else
+                    {
+                        alertPercentage -= alertStep * Time.deltaTime;
+
+                        if (alertPercentage <= 0.0f)
+                        {
+                            alert = false;
+                            alertPercentage = 0.0f;
+                        }
+                    }
+                    if (alert)
+                    {
+                        Movement(player);
                     }
                 }
             }
