@@ -4,12 +4,16 @@ using System.Collections;
 using System.Linq;
 
 public class CanvasController : MonoBehaviour {
-    public Image healthLeft;
-    public Image healthMid;
-    public Image healthRight;
+    public Image healthImage;
+    public RectTransform HPPanel;
+    private PlayerControl player;
+    private int hpMax;
+    private int currentHP; 
 	
 	void Start () {
-	
+        player = FindObjectOfType<PlayerControl>().GetComponent<PlayerControl>();
+        hpMax = 3;
+        currentHP = 3;
 	}
 	
 	// Update is called once per frame
@@ -17,32 +21,16 @@ public class CanvasController : MonoBehaviour {
 	
 	}
 
-    void updatePlayerHealth(int currentHP)
+    private void updatePlayerMaxHealth(int newMax)
     {
-        //Hard-coded health to 3, requires re-write for variable health
-        if (currentHP == 3)
-        {
-            healthLeft.gameObject.SetActive(true);
-            healthMid.gameObject.SetActive(true);
-            healthRight.gameObject.SetActive(true);
-        }
-        else if (currentHP == 2)
-        {
-            healthLeft.gameObject.SetActive(true);
-            healthMid.gameObject.SetActive(true);
-            healthRight.gameObject.SetActive(false);
-        }
-        else if (currentHP == 1)
-        {
-            healthLeft.gameObject.SetActive(true);
-            healthMid.gameObject.SetActive(false);
-            healthRight.gameObject.SetActive(false);
-        }
-        else //currentHP == 0
-        {
-            healthLeft.gameObject.SetActive(false);
-            healthMid.gameObject.SetActive(false);
-            healthRight.gameObject.SetActive(false);
-        }
+        //resize health panel
+        int widthRatio = (int)HPPanel.sizeDelta.x / hpMax;
+        hpMax = newMax;
+        HPPanel.sizeDelta = new Vector2(newMax * widthRatio, HPPanel.sizeDelta.y);
+    }
+
+    private void updatePlayerCurrentHealth(int currentHP)
+    {
+        
     }
 }
