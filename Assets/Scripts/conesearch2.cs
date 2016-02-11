@@ -6,22 +6,45 @@ public class conesearch2 : Character
 {
     public float speed = 2.0f;
     public float range = 5.0f;
+    public bool alert = false;
+    float alertPercentage = 0.0f;
+    float alertStep = 10.0f;
 
     void FixedUpdate()
     {
-        if (GameObject.FindWithTag("Player") != null)
+        if (player.gameObject != null)
         {
             LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
-            if (player != null)
+            if (player.gameObject != null)
             {
+                Debug.Log(alertPercentage);
+
                 if (l.detected)
                 {
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
                     if (hit.collider.tag == "Player")
                     {
-                        Movement(player.transform);
+                        Debug.Log("RESET");
+                        alert = true;
+                        alertPercentage = 100.0f;
+                        //Movement(player.transform);
                     }
+                }
+
+                else
+                {
+                    alertPercentage -= alertStep * Time.deltaTime;
+
+                    if (alertPercentage <= 0.0f)
+                    {
+                        alert = false;
+                        alertPercentage = 0.0f;
+                    }
+                }
+                if (alert)
+                {
+                    Movement(player.transform);
                 }
             }
         }

@@ -328,6 +328,10 @@ Prefab:
       propertyPath: team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2120080750}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
   m_IsPrefabParent: 0
@@ -723,6 +727,7 @@ MonoBehaviour:
   collisionDamage: 1
   speed: 5
   range: 5
+  alert: 0
 --- !u!60 &1474058501
 PolygonCollider2D:
   m_ObjectHideFlags: 0
