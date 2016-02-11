@@ -11,18 +11,16 @@ public class conesearch2 : Character
     {
         if (GameObject.FindWithTag("Player") != null)
         {
-            Transform player = GameObject.FindWithTag("Player").transform;
-
             LightDetect2 l = GetComponentInChildren<LightDetect2>();
 
             if (player != null)
             {
                 if (l.detected)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
                     if (hit.collider.tag == "Player")
                     {
-                        Movement(player);
+                        Movement(player.transform);
                     }
                 }
             }
@@ -41,11 +39,12 @@ public class conesearch2 : Character
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        other.gameObject.SetActive(false);
-    //    }
-    //}
+    public override void OnCollision(Character other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
+        {
+            Debug.Log(this.collisionDamage);
+            other.health -= this.collisionDamage;
+        }
+    }
 }

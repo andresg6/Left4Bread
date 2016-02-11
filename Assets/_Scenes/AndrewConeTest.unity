@@ -1122,37 +1122,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &2120080745 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 187954, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
-  m_PrefabInternal: {fileID: 239454874}
 --- !u!114 &2120080750 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c,
     type: 2}
   m_PrefabInternal: {fileID: 239454874}
   m_Script: {fileID: 11500000, guid: e72bac522386901449b15bffc3b659dc, type: 3}
---- !u!68 &2120080752
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2120080745}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: 1.76134717, y: -2.09335232}
-  - {x: .0420513153, y: -1.87787914}
-  - {x: -1.17758822, y: -2.11423206}
-  - {x: -1.69854927, y: -1.68097115}
-  - {x: -1.22148097, y: -1.30776119}
-  - {x: -1.7400887, y: -.530150414}
-  - {x: -1.14231801, y: -.041677475}
-  - {x: -.777937591, y: 1.2502737}
-  - {x: .69929111, y: 1.47765923}
-  - {x: 1.77636039, y: -.237822533}
-  - {x: 1.35963881, y: -1.28263092}
-  - {x: 1.93280065, y: -2.0933485}

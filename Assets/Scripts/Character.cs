@@ -52,4 +52,8 @@ public class Character : Base
     public virtual void OnCollision(Character other)
     {
     }
+
+    public virtual void OnCollisionStay(Collider other)
+    {
+    }
 }
