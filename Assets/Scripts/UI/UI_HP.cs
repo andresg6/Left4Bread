@@ -17,7 +17,7 @@ public class UI_HP : MonoBehaviour {
             if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
             {
                 Debug.Log("Kill me yogi");
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
 	}
