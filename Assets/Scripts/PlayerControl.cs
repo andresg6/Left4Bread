@@ -48,13 +48,14 @@ public class PlayerControl : Character
                 enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, q, Time.deltaTime * speed);
             }
         }
-        Movement();	
+        Movement();
 	}
 
     void Movement()
     {
         isWalking = false;
         isRunning = false;
+        loud = false;
         //Vector2 movement;
         x = 0;
         y = 0;
@@ -96,6 +97,7 @@ public class PlayerControl : Character
         if (isWalking && isRunning)
         {
             //player is holding down shift and W,A,S, or D
+            loud = true;
             isWalking = false;
             speed = 10;
             range = 10;
@@ -104,6 +106,7 @@ public class PlayerControl : Character
         if (isWalking)
         {
             //player is *not* holding down shift but is holding W,A,S,or D 
+            loud = true;
             speed = 5;
             range = 5;
         }
