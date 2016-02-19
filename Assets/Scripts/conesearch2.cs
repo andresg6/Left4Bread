@@ -2,69 +2,72 @@
 using System.Collections;
 using System.Linq;
 
-public class conesearch2: MonoBehaviour
+public class conesearch2 : Character
 {
-
-    public float range;
-    public float angle;
     public float speed = 2.0f;
-    public bool seeTarget = false;
-    bool alert = false;
-    float alertPercent = 0.0f;
-    float alertPercentStep = 0.05f;
+    public float range = 5.0f;
+    public bool alert = false;
+    float alertPercentage = 0.0f;
+    float alertStep = 10.0f;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(alertPercent);
-        Transform player = GameObject.FindWithTag("Player").transform;
-        Collider2D[] PlayersNearMe = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Player").ToArray();
-        if (PlayersNearMe.GetLength(0) > 0)
+        if (player.gameObject != null)
         {
-            seeTarget = true;
-            alert = true;
-            alertPercent = 100.0f;
-        }
-        else
-        {
-            if (alert)
+            LightDetect2 l = GetComponentInChildren<LightDetect2>();
+
+            if (player.gameObject != null)
             {
-                alertPercent -= alertPercentStep * Time.deltaTime;
-                if (alertPercent <= 0.0f)
+                Debug.Log(alertPercentage);
+
+                if (l.detected)
                 {
-                    alert = false;
-                    alertPercent = 0.0f;
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                    if (hit.collider.tag == "Player")
+                    {
+                        Debug.Log("RESET");
+                        alert = true;
+                        alertPercentage = 100.0f;
+                        //Movement(player.transform);
+                    }
                 }
 
                 else
                 {
-                    alertPercent = 0.0f;
+                    alertPercentage -= alertStep * Time.deltaTime;
+
+                    if (alertPercentage <= 0.0f)
+                    {
+                        alert = false;
+                        alertPercentage = 0.0f;
+                    }
                 }
-
-                seeTarget = false;
+                if (alert)
+                {
+                    Movement(player.transform);
+                }
             }
-
-           
         }
-        if (alert)
-        {
-            Movement(player);
-        }
-       
-
     }
 
     void Movement(Transform player)
     {
         if (Vector2.Distance(transform.position, player.position) > 1f)
         {
-            transform.position = Vector2.MoveTowards(new Vector3(transform.position.x, transform.position.y), player.position, speed * Time.deltaTime);
+            Vector3 targetDir = player.position - transform.position;
+            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
+    }
+
+    public override void OnCollision(Character other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
+        {
+            Debug.Log(this.collisionDamage);
+            other.health -= this.collisionDamage;
         }
     }
 }

@@ -257,6 +257,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &339765365 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c,
+    type: 2}
+  m_PrefabInternal: {fileID: 692234305}
+  m_Script: {fileID: 11500000, guid: e72bac522386901449b15bffc3b659dc, type: 3}
 --- !u!1001 &692234305
 Prefab:
   m_ObjectHideFlags: 0
@@ -315,6 +321,14 @@ Prefab:
     - target: {fileID: 111808, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447160, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2e16903c8c0b1d478ff98b93be6b24c, type: 2}
@@ -629,6 +643,18 @@ Prefab:
     - target: {fileID: 6019392, guid: 382d651e79a1e64469199ee738355fce, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451740, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 339765365}
+    - target: {fileID: 11451740, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451740, guid: 382d651e79a1e64469199ee738355fce, type: 2}
+      propertyPath: collisionDamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6019392, guid: 382d651e79a1e64469199ee738355fce, type: 2}
