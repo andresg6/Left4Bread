@@ -11,6 +11,7 @@ public class PlayerControl : Character
     public bool isRunning;
     public bool loud = false;
     public bool splashy = false;
+    public bool hidden = false;
     int x;
     int y;
     Vector2 direction;
@@ -25,15 +26,8 @@ public class PlayerControl : Character
         base.Start();
         anim = this.GetComponent<Animator>();
     }
-
-    void onCollisionStay(Collision2D col)
-    {
-        if (col.gameObject.tag == "Puddles")
-        {
-            splashy = true;
-        }
-    }
-
+ 
+  
 	void FixedUpdate ()
     {
 
@@ -48,6 +42,15 @@ public class PlayerControl : Character
                 enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, q, Time.deltaTime * speed);
             }
         }
+        if (hidden)
+        {
+           player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+
+        }
+        else
+        {
+            player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        }
         Movement();
 	}
 
@@ -59,70 +62,72 @@ public class PlayerControl : Character
         //Vector2 movement;
         x = 0;
         y = 0;
+        if (!hidden)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                isRunning = true;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRunning = true;
+            }
 
-        }
-   
-        
-        if(Input.GetKey(KeyCode.D))
-        {
-            //transform.Translate(Vector2.right * speed * Time.deltaTime);
-            x++; 
-            isWalking = true;
-        }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            ///transform.Translate(Vector2.left * speed * Time.deltaTime);
-            x--;
-            isWalking = true;
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                //transform.Translate(Vector2.right * speed * Time.deltaTime);
+                x++;
+                isWalking = true;
+            }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-           // transform.Translate(Vector2.up * speed * Time.deltaTime);
-            y++;
-            isWalking = true;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                ///transform.Translate(Vector2.left * speed * Time.deltaTime);
+                x--;
+                isWalking = true;
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            //transform.Translate(Vector2.down * speed * Time.deltaTime);
-            y--;
-            isWalking = true;
-        }
-        if (isWalking && isRunning)
-        {
-            //player is holding down shift and W,A,S, or D
-            loud = true;
-            isWalking = false;
-            speed = 10;
-            range = 10;
-            
-        }
-        if (isWalking)
-        {
-            //player is *not* holding down shift but is holding W,A,S,or D 
-            loud = true;
-            speed = 5;
-            range = 5;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                // transform.Translate(Vector2.up * speed * Time.deltaTime);
+                y++;
+                isWalking = true;
+            }
 
-        direction.x = x;
-        direction.y = y;
-        transform.Translate(direction * speed * Time.deltaTime);
-        if (splashy && isWalking)
-        {
-            range = 10;
-            splashy = false;
-        }
-        if (splashy && isRunning)
-        {
-            range = 15;
-            splashy = false;
+            if (Input.GetKey(KeyCode.S))
+            {
+                //transform.Translate(Vector2.down * speed * Time.deltaTime);
+                y--;
+                isWalking = true;
+            }
+            if (isWalking && isRunning)
+            {
+                //player is holding down shift and W,A,S, or D
+                loud = true;
+                isWalking = false;
+                speed = 10;
+                range = 10;
+
+            }
+            if (isWalking)
+            {
+                //player is *not* holding down shift but is holding W,A,S,or D 
+                loud = true;
+                speed = 5;
+                range = 5;
+            }
+
+            direction.x = x;
+            direction.y = y;
+            transform.Translate(direction * speed * Time.deltaTime);
+            if (splashy && isWalking)
+            {
+                range = 10;
+                splashy = false;
+            }
+            if (splashy && isRunning)
+            {
+                range = 15;
+                splashy = false;
+            }
         }
     }
 
