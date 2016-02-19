@@ -130,14 +130,4 @@ public class PlayerControl : Character
             }
         }
     }
-
-    //public override void OnCollision(Character other)
-    //{
-    //    if (this.gameObject.layer == LayerMask.NameToLayer("Test"))
-    //    {
-    //        float damage = other.collisionDamage;
-    //        Debug.Log(damage);
-    //        health -= damage;
-    //    }
-    //}
 }

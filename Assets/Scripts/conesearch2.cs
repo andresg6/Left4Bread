@@ -69,4 +69,12 @@ public class conesearch2 : Character
             other.health -= this.collisionDamage;
         }
     }
+
+    public override void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
+        {
+            other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
+        }
+    }
 }
