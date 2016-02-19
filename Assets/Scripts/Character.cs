@@ -53,7 +53,7 @@ public class Character : Base
     {
     }
 
-    public virtual void OnCollisionStay(Collision other)
+    public virtual void OnCollisionStay2D(Collision2D other)
     {
     }
 }
