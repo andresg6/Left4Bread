@@ -5,7 +5,6 @@ using System.Linq;
 public class conesearch2 : Character
 {
     public float speed = 2.0f;
-    public float range = 5.0f;
     public bool alert = false;
     float alertPercentage = 0.0f;
     float alertStep = 10.0f;
