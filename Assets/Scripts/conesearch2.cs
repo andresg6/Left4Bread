@@ -18,14 +18,14 @@ public class conesearch2 : Character
 
             if (player.gameObject != null)
             {
-                Debug.Log(alertPercentage);
+                //Debug.Log(alertPercentage);
 
                 if (l.detected)
                 {
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
                     if (hit.collider.tag == "Player")
                     {
-                        Debug.Log("RESET");
+                        //Debug.Log("RESET");
                         alert = true;
                         alertPercentage = 100.0f;
                         //Movement(player.transform);
@@ -66,7 +66,7 @@ public class conesearch2 : Character
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
         {
-            Debug.Log(this.collisionDamage);
+            //Debug.Log(this.collisionDamage);
             other.health -= this.collisionDamage;
         }
     }
