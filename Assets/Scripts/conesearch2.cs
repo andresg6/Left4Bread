@@ -18,17 +18,18 @@ public class conesearch2 : Character
 
             if (player.gameObject != null)
             {
-                //Debug.Log(alertPercentage);
+                Debug.Log(alertPercentage);
 
-                if (l.detected)
+                if (l.detected && !player.hidden)
                 {
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
-                    if (hit.collider.tag == "Player")
+                    if (hit.collider.tag == "Player" )
                     {
-                        //Debug.Log("RESET");
-                        alert = true;
-                        alertPercentage = 100.0f;
-                        //Movement(player.transform);
+                            //Debug.Log("RESET");
+                            alert = true;
+                            alertPercentage = 100.0f;
+                            //Movement(player.transform);
+                        
                     }
                 }
 
