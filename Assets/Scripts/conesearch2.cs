@@ -11,40 +11,36 @@ public class conesearch2 : Character
 
     void FixedUpdate()
     {
-        if (player.gameObject != null)
+        if (player.gameObject.activeSelf)
         {
             LightDetect2 l = GetComponentInChildren<LightDetect2>();
+            //Debug.Log(alertPercentage);
 
-            if (player.gameObject != null)
+            if (l.detected)
             {
-                //Debug.Log(alertPercentage);
-
-                if (l.detected)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                if (hit.collider.tag == "Player")
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
-                    if (hit.collider.tag == "Player")
-                    {
-                        //Debug.Log("RESET");
-                        alert = true;
-                        alertPercentage = 100.0f;
-                        //Movement(player.transform);
-                    }
+                    //Debug.Log("RESET");
+                    alert = true;
+                    alertPercentage = 100.0f;
+                    //Movement(player.transform);
                 }
+            }
 
-                else
-                {
-                    alertPercentage -= alertStep * Time.deltaTime;
+            else
+            {
+                alertPercentage -= alertStep * Time.deltaTime;
 
-                    if (alertPercentage <= 0.0f)
-                    {
-                        alert = false;
-                        alertPercentage = 0.0f;
-                    }
-                }
-                if (alert)
+                if (alertPercentage <= 0.0f)
                 {
-                    Movement(player.transform);
+                    alert = false;
+                    alertPercentage = 0.0f;
                 }
+            }
+            if (alert)
+            {
+                Movement(player.transform);
             }
         }
     }
@@ -63,18 +59,28 @@ public class conesearch2 : Character
 
     public override void OnCollision(Character other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
+        if (other.gameObject.tag == "Player" && other.gameObject.layer == LayerMask.NameToLayer("Test"))
         {
             //Debug.Log(this.collisionDamage);
-            other.health -= this.collisionDamage;
+            if (!other.gameObject.GetComponent<PlayerControl>().invincible)
+            {
+                other.health -= this.collisionDamage;
+                other.gameObject.GetComponent<PlayerControl>().invincible = true;
+                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
+            }
         }
     }
 
     public override void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Test"))
+        if (other.gameObject.tag == "Player" && other.gameObject.layer == LayerMask.NameToLayer("Test"))
         {
-            other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
+            if (!other.gameObject.GetComponent<PlayerControl>().invincible)
+            {
+                other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
+                other.gameObject.GetComponent<PlayerControl>().invincible = true;
+                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
+            }
         }
     }
 }

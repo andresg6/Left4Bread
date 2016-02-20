@@ -12,6 +12,8 @@ public class PlayerControl : Character
     public bool loud = false;
     public bool splashy = false;
     public bool hidden = false;
+    public bool invincible = false;
+    public float timehit;
     int x;
     int y;
     Vector2 direction;
@@ -52,6 +54,14 @@ public class PlayerControl : Character
             player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
         Movement();
+
+        if (invincible)
+        {
+            if (timehit + 2 < Time.realtimeSinceStartup)
+            {
+                invincible = false;
+            }
+        }
 	}
 
     void Movement()
