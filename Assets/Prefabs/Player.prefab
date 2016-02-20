@@ -503,6 +503,8 @@ MonoBehaviour:
   loud: 0
   splashy: 0
   hidden: 0
+  invincible: 0
+  timehit: 0
 --- !u!212 &21223674
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -529,7 +531,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c267d9fe7eca23458f2e35e63e7a843, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e62a05936f7aa494f81eb72a87fcad99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -539,7 +541,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e62a05936f7aa494f81eb72a87fcad99,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151118}
