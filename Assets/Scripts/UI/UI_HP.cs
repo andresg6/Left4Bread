@@ -10,13 +10,17 @@ public class UI_HP : MonoBehaviour {
         isDying = true;
         anim = GetComponent<Animator>();
     }
+
+    public void removeHealth()
+    {
+        lostAnimation();
+    }
 	
 	void Update () {
 	    if(isDying)
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dead"))
             {
-                Debug.Log("Kill me yogi");
                 Destroy(this.gameObject);
             }
         }

@@ -5,6 +5,8 @@ using System.Linq;
 public class PlayerControl : Character
 {
     public float speed;
+    public float walkingSpeed = 5;
+    public float runningSpeed = 10;
     public float range;
 
     public bool isWalking;
@@ -12,6 +14,8 @@ public class PlayerControl : Character
     public bool loud = false;
     public bool splashy = false;
     public bool hidden = false;
+    public bool invincible = false;
+    public float timehit;
     int x;
     int y;
     Vector2 direction;
@@ -52,6 +56,14 @@ public class PlayerControl : Character
             player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
         Movement();
+
+        if (invincible)
+        {
+            if (timehit + 2 < Time.realtimeSinceStartup)
+            {
+                invincible = false;
+            }
+        }
 	}
 
     void Movement()
@@ -103,7 +115,7 @@ public class PlayerControl : Character
                 //player is holding down shift and W,A,S, or D
                 loud = true;
                 isWalking = false;
-                speed = 10;
+                speed = runningSpeed;
                 range = 10;
 
             }
@@ -111,7 +123,7 @@ public class PlayerControl : Character
             {
                 //player is *not* holding down shift but is holding W,A,S,or D 
                 loud = true;
-                speed = 5;
+                speed = walkingSpeed;
                 range = 5;
             }
 
@@ -130,14 +142,4 @@ public class PlayerControl : Character
             }
         }
     }
-
-    //public override void OnCollision(Character other)
-    //{
-    //    if (this.gameObject.layer == LayerMask.NameToLayer("Test"))
-    //    {
-    //        float damage = other.collisionDamage;
-    //        Debug.Log(damage);
-    //        health -= damage;
-    //    }
-    //}
 }
