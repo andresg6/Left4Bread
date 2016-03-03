@@ -14,7 +14,7 @@ public class conesearch2 : Character
         if (player.gameObject.activeSelf)
         {
             LightDetect2 l = GetComponentInChildren<LightDetect2>();
-            Debug.Log(alertPercentage);
+            //Debug.Log(alertPercentage);
 
             if (l.detected && !player.hidden)
             {
