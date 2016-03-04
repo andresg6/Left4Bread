@@ -352,6 +352,8 @@ MonoBehaviour:
   team: 0
   collisionDamage: 1
   speed: 5
+  walkingSpeed: 5
+  runningSpeed: 10
   range: 10
   isWalking: 1
   isRunning: 0
@@ -386,7 +388,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e62a05936f7aa494f81eb72a87fcad99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f613c52e43c51174aa1ae77587723805, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -396,7 +398,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f613c52e43c51174aa1ae77587723805,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105908}
