@@ -15,7 +15,8 @@ public class PlayerControl : Character
     public bool splashy = false;
     public bool hidden = false;
     public bool invincible = false;
-    public float timehit;
+    public float timehit = 2;
+    public float invincibleTime;
     int x;
     int y;
     Vector2 direction;
@@ -76,7 +77,7 @@ public class PlayerControl : Character
         if (invincible)
         {
             StartCoroutine("Flasher");
-            if (timehit + 2 < Time.realtimeSinceStartup)
+            if (timehit + invincibleTime < Time.realtimeSinceStartup)
             {
                 invincible = false;
                 //player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
