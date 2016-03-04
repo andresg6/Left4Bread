@@ -75,12 +75,22 @@ public class PlayerControl : Character
 
         if (invincible)
         {
+            StartCoroutine("Flasher");
             if (timehit + 2 < Time.realtimeSinceStartup)
             {
                 invincible = false;
+                player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
 	}
+
+    IEnumerator Flasher()
+    {
+            player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(.1f);
+            player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(.1f);
+    }
 
     void Movement()
     {
