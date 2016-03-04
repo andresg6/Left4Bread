@@ -9,8 +9,8 @@ public class PlayerControl : Character
     public float runningSpeed = 10;
     public float range;
 
-    public bool isWalking;
-    public bool isRunning;
+    public bool isWalking = false;
+    public bool isRunning = false;
     public bool loud = false;
     public bool splashy = false;
     public bool hidden = false;
@@ -21,6 +21,8 @@ public class PlayerControl : Character
     Vector2 direction;
 
     private Animator anim;
+    private string lastMovement;
+
         //void Start()
         //{
         //    Physics2D.IgnoreLayerCollision(0, 1, true);
@@ -34,7 +36,6 @@ public class PlayerControl : Character
   
 	void FixedUpdate ()
     {
-
         Collider2D[] enemiesnearby = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Enemies").ToArray();
         if (loud)
         {
@@ -57,6 +58,21 @@ public class PlayerControl : Character
         }
         Movement();
 
+        if (!isWalking && !isRunning)
+        {
+            anim.speed = 0;
+        }
+
+        else if (isWalking)
+        {
+            anim.speed = 1;
+        }
+
+        else if (isRunning)
+        {
+            anim.speed = 2;
+        }
+
         if (invincible)
         {
             if (timehit + 2 < Time.realtimeSinceStartup)
@@ -70,7 +86,7 @@ public class PlayerControl : Character
     {
         isWalking = false;
         isRunning = false;
-        loud = false;
+        //loud = false;
         //Vector2 movement;
         x = 0;
         y = 0;
@@ -82,12 +98,12 @@ public class PlayerControl : Character
 
             }
 
-
             if (Input.GetKey(KeyCode.D))
             {
                 //transform.Translate(Vector2.right * speed * Time.deltaTime);
                 x++;
                 isWalking = true;
+                lastMovement = "walkingRight";
             }
 
             if (Input.GetKey(KeyCode.A))
@@ -95,6 +111,7 @@ public class PlayerControl : Character
                 ///transform.Translate(Vector2.left * speed * Time.deltaTime);
                 x--;
                 isWalking = true;
+                lastMovement = "walkingLeft";
             }
 
             if (Input.GetKey(KeyCode.W))
@@ -102,6 +119,7 @@ public class PlayerControl : Character
                 // transform.Translate(Vector2.up * speed * Time.deltaTime);
                 y++;
                 isWalking = true;
+                lastMovement = "walkingBack";
             }
 
             if (Input.GetKey(KeyCode.S))
@@ -109,7 +127,35 @@ public class PlayerControl : Character
                 //transform.Translate(Vector2.down * speed * Time.deltaTime);
                 y--;
                 isWalking = true;
+                lastMovement = "walkingFront";
             }
+
+            //animations
+            if (Input.GetKey(KeyCode.D))
+            {
+                //transform.Translate(Vector2.right * speed * Time.deltaTime);
+                anim.Play("walkingRight");
+            }
+
+            else if (Input.GetKey(KeyCode.A))
+            {
+                ///transform.Translate(Vector2.left * speed * Time.deltaTime);
+                anim.Play("walkingLeft");
+            }
+
+            else if (Input.GetKey(KeyCode.W))
+            {
+                // transform.Translate(Vector2.up * speed * Time.deltaTime);
+                anim.Play("walkingBack");
+            }
+
+            else if (Input.GetKey(KeyCode.S))
+            {
+                //transform.Translate(Vector2.down * speed * Time.deltaTime);
+                anim.Play("walkingFront");
+            }
+
+
             if (isWalking && isRunning)
             {
                 //player is holding down shift and W,A,S, or D
