@@ -79,7 +79,7 @@ public class PlayerControl : Character
             if (timehit + 2 < Time.realtimeSinceStartup)
             {
                 invincible = false;
-                player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                //player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
 	}
