@@ -10,10 +10,12 @@ public class Cover : Environment
             if (Input.GetKey(KeyCode.E)){
             Debug.Log("in cover");
             player.hidden = true;
+            player.gameObject.GetComponent<Collider2D>().enabled = false;
             }
             else
             {
                 player.hidden = false;
+                player.gameObject.GetComponent<Collider2D>().enabled = true;
             }
         }
     else
@@ -22,26 +24,5 @@ public class Cover : Environment
         }
     }
 
-   /* public void OnTriggerStay2D(Collider2D other)
-    {
-
-        
-        if (other.gameObject.tag == "Player" && other.gameObject.layer == LayerMask.NameToLayer("Test")  )
-        {
-            Debug.Log("in trigger");
-            if (Input.GetKey(KeyCode.E))
-            {
-               
-                ///put shit in for colliding with a cone of sight and have bools for "cover" and "hidden" bc you can be covered but they KNOW 
-            }
-            else
-            {
-                isInteracting = false;
-                player.hidden = false;
-                Debug.Log("out of cover");
-
-            }
-        }
-
-    }*/
+  
 }

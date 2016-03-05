@@ -11,7 +11,7 @@ public class Spore : Base
 	// Use this for initialization
 	public virtual void Start () 
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();	
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();	
 
 	}
 	
@@ -21,7 +21,7 @@ public class Spore : Base
             if (!player.invincible)
             {
                 coll.gameObject.GetComponent<PlayerControl>().health -= this.damage;
-                //coll.gameObject.GetComponent<PlayerControl>().invincible = true;
+                coll.gameObject.GetComponent<PlayerControl>().invincible = true;
                 coll.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
                 
             }

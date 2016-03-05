@@ -8,6 +8,15 @@ public class conesearch2 : Character
     public bool alert = false;
     float alertPercentage = 0.0f;
     float alertStep = 10.0f;
+    Vector3 startPos;
+
+    public override void Start()
+    {
+        base.Start();
+        startPos.x = transform.position.x;
+        startPos.y = transform.position.y;
+        startPos.z = transform.position.z;
+    }
 
     void FixedUpdate()
     {
@@ -40,20 +49,27 @@ public class conesearch2 : Character
             }
             if (alert)
             {
-                Movement(player.transform);
+                Movement(player.transform.position);
+            }
+            else
+            {
+                Debug.Log("not alerted, should be moving towards start position");
+                Debug.Log(startPos.x);
+                Debug.Log(startPos.y);
+                Movement(startPos);
             }
         }
     }
 
-    void Movement(Transform player)
+    void Movement(Vector3 position)
     {
-        if (Vector2.Distance(transform.position, player.position) > 1f)
+        if (Vector2.Distance(transform.position, position) > 1f)
         {
-            Vector3 targetDir = player.position - transform.position;
+            Vector3 targetDir = position - transform.position;
             float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
         }
     }
 
@@ -77,6 +93,7 @@ public class conesearch2 : Character
         {
             if (!other.gameObject.GetComponent<PlayerControl>().invincible)
             {
+               // Debug.Log(player.health);
                 other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
                 other.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
