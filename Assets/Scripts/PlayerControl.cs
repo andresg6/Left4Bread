@@ -248,7 +248,7 @@ public class PlayerControl : Character
             {
                 other.gameObject.GetComponent<conesearch2>().health -= this.collisionDamage;
                 other.gameObject.GetComponent<conesearch2>().speed = 1;
-                other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
+                //other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
                 other.gameObject.GetComponent<conesearch2>().invincible = true;
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
@@ -263,7 +263,7 @@ public class PlayerControl : Character
             {
                 other.gameObject.GetComponent<conesearch2>().health -= this.collisionDamage;
                 other.gameObject.GetComponent<conesearch2>().speed = 1;
-                other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
+                //other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
                 other.gameObject.GetComponent<conesearch2>().invincible = true;
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
