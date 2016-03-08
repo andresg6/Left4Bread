@@ -32,9 +32,10 @@ public class conesearch2 : Character
             if (l.detected && !player.hidden)
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                Debug.DrawRay(transform.position, player.transform.position - transform.position);
                 if (hit.collider.tag == "Player")
                 {
-                    //Debug.Log("RESET");
+                    //Debug.Log("DETECTED");
                     player.alert = true;
                     player.alertPercentage = 100.0f;
                     //Movement(player.transform);
