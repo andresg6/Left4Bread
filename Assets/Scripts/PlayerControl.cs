@@ -104,7 +104,7 @@ public class PlayerControl : Character
     {
         if (!hidden)
         {
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.Space))
             {
                 isAttacking = true;
                 if (lastMovement == "walkingRight")
