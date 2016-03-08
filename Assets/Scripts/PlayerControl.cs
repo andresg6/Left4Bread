@@ -11,16 +11,20 @@ public class PlayerControl : Character
 
     public bool isWalking = false;
     public bool isRunning = false;
-    public bool isAttacking = false;
     public bool loud = false;
     public bool splashy = false;
     public bool hidden = false;
     public bool invincible = false;
-    public float timehit;
-    public float invincibleTime = 2;
+    public float timehit = 2;
+    public float invincibleTime;
     int x;
     int y;
     Vector2 direction;
+
+    public bool alert = false;
+    public float alertPercentage = 0.0f;
+    public float alertStep = 10.0f;
+    public AudioSource alertMusic;
 
     private Animator anim;
     public MainUIController mainui;
@@ -40,7 +44,20 @@ public class PlayerControl : Character
             mainui.updatePlayerHealth((int)health, (int)maxHealth);
         }
     }
- 
+
+    void Update()
+    {
+        if (alert)
+        {
+            alertMusic.enabled = true;
+            alertMusic.loop = true;
+        }
+        else
+        {
+            alertMusic.enabled = false;
+            alertMusic.loop = false;
+        }
+    }
   
 	void FixedUpdate ()
     {
@@ -65,9 +82,8 @@ public class PlayerControl : Character
             player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         }
         Movement();
-        Attack();
 
-        if (!isWalking && !isRunning && !isAttacking)
+        if (!isWalking && !isRunning)
         {
             anim.speed = 0;
         }
@@ -75,11 +91,6 @@ public class PlayerControl : Character
         else if (isWalking)
         {
             anim.speed = 1;
-        }
-
-        else if (isAttacking)
-        {
-            anim.speed = 1;           
         }
 
         else if (isRunning)
@@ -104,39 +115,6 @@ public class PlayerControl : Character
             yield return new WaitForSeconds(.1f);
             player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(.1f);
-    }
-
-    void Attack()
-    {
-        if (!hidden)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                isAttacking = true;
-                if (lastMovement == "walkingRight")
-                {
-                    anim.Play("attackRight");
-                }
-                else if (lastMovement == "walkingLeft")
-                {
-                    anim.Play("attackLeft");
-                }
-                else if (lastMovement == "walkingFront")
-                {
-                    anim.Play("attackForward");
-                }
-
-                else if (lastMovement == "walkingBack")
-                {
-                    anim.Play("attackBack");
-                }
-            }
-
-            else
-            {
-                isAttacking = false;
-            }
-        }
     }
 
     void Movement()
@@ -242,36 +220,6 @@ public class PlayerControl : Character
             {
                 range = 15;
                 splashy = false;
-            }
-        }
-    }
-
-    public override void OnCollision(Character other)
-    {
-        if (other.gameObject.tag == "Enemies" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
-        {
-            if (!other.gameObject.GetComponent<conesearch2>().invincible)
-            {
-                other.gameObject.GetComponent<conesearch2>().health -= this.collisionDamage;
-                other.gameObject.GetComponent<conesearch2>().speed = 1;
-                //other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
-                other.gameObject.GetComponent<conesearch2>().invincible = true;
-                other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
-            }
-        }
-    }
-
-    public override void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Enemies" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
-        {
-            if (!other.gameObject.GetComponent<conesearch2>().invincible)
-            {
-                other.gameObject.GetComponent<conesearch2>().health -= this.collisionDamage;
-                other.gameObject.GetComponent<conesearch2>().speed = 1;
-                //other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 20);
-                other.gameObject.GetComponent<conesearch2>().invincible = true;
-                other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
         }
     }
