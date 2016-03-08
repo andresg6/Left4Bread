@@ -23,6 +23,7 @@ public class PlayerControl : Character
     Vector2 direction;
 
     private Animator anim;
+    public MainUIController mainui;
     private string lastMovement;
 
         //void Start()
@@ -33,6 +34,11 @@ public class PlayerControl : Character
     {
         base.Start();
         anim = this.GetComponent<Animator>();
+        mainui = FindObjectOfType<MainUIController>();
+        if(mainui)
+        {
+            mainui.updatePlayerHealth((int)health, (int)maxHealth);
+        }
     }
  
   
@@ -90,7 +96,7 @@ public class PlayerControl : Character
                 //player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
-	}
+    }
 
     IEnumerator Flasher()
     {

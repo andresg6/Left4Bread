@@ -104,6 +104,7 @@ public class conesearch2 : Character
             if (!other.gameObject.GetComponent<PlayerControl>().invincible)
             {
                 other.health -= this.collisionDamage;
+                player.mainui.updatePlayerHealth((int)player.health, (int)player.maxHealth);
                 other.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
             }
@@ -118,6 +119,7 @@ public class conesearch2 : Character
             {
                // Debug.Log(player.health);
                 other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
+                player.mainui.updatePlayerHealth((int)player.health, (int)player.maxHealth);
                 other.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
             }

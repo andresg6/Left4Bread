@@ -21,6 +21,7 @@ public class Spore : Base
             if (!player.invincible)
             {
                 coll.gameObject.GetComponent<PlayerControl>().health -= this.damage;
+                player.mainui.updatePlayerHealth((int)player.health, (int)player.maxHealth);
                 coll.gameObject.GetComponent<PlayerControl>().invincible = true;
                 coll.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
                 
