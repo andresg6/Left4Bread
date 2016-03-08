@@ -61,7 +61,7 @@ MonoBehaviour:
   team: 0
   collisionDamage: 1
   direction: N
-  Spore: {fileID: 0}
+  Spore: {fileID: 138400, guid: 0fbae406bf8b91648918a904725c27a1, type: 2}
   frequency: 3
   shootOffset: 0
 --- !u!212 &21258992
@@ -100,7 +100,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Spore
+      value: 
+      objectReference: {fileID: 138400, guid: 0fbae406bf8b91648918a904725c27a1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153304}

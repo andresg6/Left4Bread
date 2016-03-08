@@ -5,9 +5,7 @@ using System.Linq;
 public class conesearch2 : Character
 {
     public float speed = 2.0f;
-    public bool alert = false;
-    float alertPercentage = 0.0f;
-    float alertStep = 10.0f;
+ 
     Vector3 startPos;
 
     public override void Start()
@@ -31,23 +29,23 @@ public class conesearch2 : Character
                 if (hit.collider.tag == "Player")
                 {
                     //Debug.Log("RESET");
-                    alert = true;
-                    alertPercentage = 100.0f;
+                    player.alert = true;
+                    player.alertPercentage = 100.0f;
                     //Movement(player.transform);
                 }
             }
 
             else
             {
-                alertPercentage -= alertStep * Time.deltaTime;
+                player.alertPercentage -= player.alertStep * Time.deltaTime;
 
-                if (alertPercentage <= 0.0f)
+                if (player.alertPercentage <= 0.0f)
                 {
-                    alert = false;
-                    alertPercentage = 0.0f;
+                    player.alert = false;
+                    player.alertPercentage = 0.0f;
                 }
             }
-            if (alert)
+            if (player.alert)
             {
                 Movement(player.transform.position);
             }

@@ -21,6 +21,11 @@ public class PlayerControl : Character
     int y;
     Vector2 direction;
 
+    public bool alert = false;
+    public float alertPercentage = 0.0f;
+    public float alertStep = 10.0f;
+    public AudioSource alertMusic;
+
     private Animator anim;
     private string lastMovement;
 
@@ -33,7 +38,20 @@ public class PlayerControl : Character
         base.Start();
         anim = this.GetComponent<Animator>();
     }
- 
+
+    void Update()
+    {
+        if (alert)
+        {
+            alertMusic.enabled = true;
+            alertMusic.loop = true;
+        }
+        else
+        {
+            alertMusic.enabled = false;
+            alertMusic.loop = false;
+        }
+    }
   
 	void FixedUpdate ()
     {
