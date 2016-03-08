@@ -39,11 +39,6 @@ public class PlayerControl : Character
     {
         base.Start();
         anim = this.GetComponent<Animator>();
-        mainui = FindObjectOfType<MainUIController>();
-        if(mainui)
-        {
-            mainui.updatePlayerHealth((int)health, (int)maxHealth);
-        }
     }
 
     public override void Update()
@@ -63,6 +58,7 @@ public class PlayerControl : Character
   
 	void FixedUpdate ()
     {
+        mainui.updatePlayerHealth(health, maxHealth);
         Collider2D[] enemiesnearby = Physics2D.OverlapCircleAll(transform.position, range).Where(c => c.tag == "Enemies").ToArray();
         if (loud)
         {
