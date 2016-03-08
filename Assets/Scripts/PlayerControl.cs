@@ -274,6 +274,11 @@ public class PlayerControl : Character
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
         }
+
+        else if (other.gameObject.tag == "Mushboom" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
+        {
+            other.gameObject.GetComponent<MushBoom>().health -= this.collisionDamage;
+        }
     }
 
     public override void OnCollisionStay2D(Collision2D other)
@@ -288,6 +293,11 @@ public class PlayerControl : Character
                 other.gameObject.GetComponent<conesearch2>().invincible = true;
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
+        }
+        
+        else if (other.gameObject.tag == "Mushboom" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
+        {
+            other.gameObject.GetComponent<MushBoom>().health -= this.collisionDamage;
         }
     }
 }

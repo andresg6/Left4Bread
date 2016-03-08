@@ -25,8 +25,6 @@ public class MushBoom : Character
 
     }
 
-
-
     // Update is called once per frame
     public override void Update()
     {
@@ -44,20 +42,20 @@ public class MushBoom : Character
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        Character otherCharacter = other.GetComponent<Character>();
-        if (otherCharacter != null && otherCharacter.team != this.team)
-        {
-            OnCollision(otherCharacter);
-        }
+    //public void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Character otherCharacter = other.GetComponent<Character>();
+    //    if (otherCharacter != null && otherCharacter.team != this.team)
+    //    {
+    //        OnCollision(otherCharacter);
+    //    }
 
-        Pickup otherPickup = other.GetComponent<Pickup>();
-        if (otherPickup != null)
-        {
-            OnPickup(otherPickup);
-        }
-    }
+    //    Pickup otherPickup = other.GetComponent<Pickup>();
+    //    if (otherPickup != null)
+    //    {
+    //        OnPickup(otherPickup);
+    //    }
+    //}
 
     void Shoot()
     {   
@@ -66,16 +64,5 @@ public class MushBoom : Character
          Vector2 shootFrom = new Vector2(transform.position.x, transform.position.y + shootOffset);
          go.transform.position = shootFrom;
 
-    }
-    public virtual void OnPickup(Pickup other)
-    {
-    }
-
-    public virtual void OnCollision(Character other)
-    {
-    }
-
-    public virtual void OnCollisionStay2D(Collision2D other)
-    {
     }
 }
