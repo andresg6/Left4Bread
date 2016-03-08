@@ -7,13 +7,6 @@ public class Spore : Base
     public string direction;
     public int speed = 20;
     public int damage = 5;
-    
-	// Use this for initialization
-	public virtual void Start () 
-    {
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();	
-
-	}
 	
     void OnCollisionEnter2D(Collision2D coll){
         if(coll.gameObject.tag == "Player"){
@@ -33,6 +26,7 @@ public class Spore : Base
 	// Update is called once per frame
 	public virtual void Update () 
     {
+        base.Update();
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();

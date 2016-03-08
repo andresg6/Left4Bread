@@ -4,8 +4,14 @@ using System.Linq;
 
 public class conesearch2 : Character
 {
-    public float speed = 2.0f;
- 
+    public float speed = 5.0f;
+    public float maxspeed = 15.0f;
+    public bool alert = false;
+    public bool invincible = false;
+    public float timehit;
+    public float invincibleTime = 1;
+    float alertPercentage = 0.0f;
+    float alertStep = 10.0f;
     Vector3 startPos;
 
     public override void Start()
@@ -51,12 +57,31 @@ public class conesearch2 : Character
             }
             else
             {
-                Debug.Log("not alerted, should be moving towards start position");
-                Debug.Log(startPos.x);
-                Debug.Log(startPos.y);
+                //Debug.Log("not alerted, should be moving towards start position");
+                //Debug.Log(startPos.x);
+                //Debug.Log(startPos.y);
                 Movement(startPos);
             }
         }
+       
+        if (invincible)
+        {
+            StartCoroutine("Flasher");
+        }
+
+        if (timehit + invincibleTime < Time.realtimeSinceStartup)
+        {
+            invincible = false;
+            speed = maxspeed;
+        }
+    }
+
+    IEnumerator Flasher()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        yield return new WaitForSeconds(.1f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(.1f);
     }
 
     void Movement(Vector3 position)
@@ -78,10 +103,10 @@ public class conesearch2 : Character
             //Debug.Log(this.collisionDamage);
             if (!other.gameObject.GetComponent<PlayerControl>().invincible)
             {
+                player.gameObject.GetComponent<PlayerControl>().invincible = true;
+                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
                 other.health -= this.collisionDamage;
                 player.mainui.updatePlayerHealth((int)player.health, (int)player.maxHealth);
-                other.gameObject.GetComponent<PlayerControl>().invincible = true;
-                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
             }
         }
     }
@@ -93,10 +118,10 @@ public class conesearch2 : Character
             if (!other.gameObject.GetComponent<PlayerControl>().invincible)
             {
                // Debug.Log(player.health);
+                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
+                player.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
                 player.mainui.updatePlayerHealth((int)player.health, (int)player.maxHealth);
-                other.gameObject.GetComponent<PlayerControl>().invincible = true;
-                other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
             }
         }
     }
