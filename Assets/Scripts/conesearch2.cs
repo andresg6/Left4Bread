@@ -5,6 +5,7 @@ using System.Linq;
 public class conesearch2 : Character
 {
     public float speed = 5.0f;
+    public float maxspeed = 15.0f;
     public bool alert = false;
     public bool invincible = false;
     public float timehit;
@@ -56,9 +57,9 @@ public class conesearch2 : Character
             }
             else
             {
-                Debug.Log("not alerted, should be moving towards start position");
-                Debug.Log(startPos.x);
-                Debug.Log(startPos.y);
+                //Debug.Log("not alerted, should be moving towards start position");
+                //Debug.Log(startPos.x);
+                //Debug.Log(startPos.y);
                 Movement(startPos);
             }
         }
@@ -66,11 +67,12 @@ public class conesearch2 : Character
         if (invincible)
         {
             StartCoroutine("Flasher");
-            if (timehit + invincibleTime < Time.realtimeSinceStartup)
-            {
-                invincible = false;
-                speed = 5.0f;
-            }
+        }
+
+        if (timehit + invincibleTime < Time.realtimeSinceStartup)
+        {
+            invincible = false;
+            speed = maxspeed;
         }
     }
 
