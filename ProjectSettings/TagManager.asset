@@ -8,6 +8,10 @@ TagManager:
   - Puddles
   - Cover
   - Mushboom
+  - Pickup
+  - Enemy
+  - EventEnter
+  - EventExit
   layers:
   - Default
   - TransparentFX
