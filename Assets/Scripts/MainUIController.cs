@@ -11,8 +11,35 @@ public class MainUIController : MonoBehaviour {
         scc = FindObjectOfType<ScaleCanvasController>();
 	}
 
+    void Update()
+    {
+        handleKeyPress();
+    }
+
+    private void handleKeyPress()
+    {
+        if (Input.GetButtonDown("Info"))
+        {
+            scc.toggleInfoPanel();
+        }
+        if (Input.GetButtonUp("Info"))
+        {
+            scc.toggleInfoPanel();
+        }
+    }
+
     public void updatePlayerHealth(int remainingHealth, int maxHealth)
     {
         pcc.updatePlayerHealth(remainingHealth, maxHealth);
+    }
+
+    public void pauseGame()
+    {
+        scc.pauseGame();
+    }
+
+    public void unpauseGame()
+    {
+        scc.unpauseGame();
     }
 }

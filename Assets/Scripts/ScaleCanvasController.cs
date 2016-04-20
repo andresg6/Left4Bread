@@ -8,6 +8,8 @@ public class ScaleCanvasController : MonoBehaviour {
     public RectTransform TextPanel;
     private bool isHidden;
 
+    private float lastTimescale;
+
 
 	// Use this for initialization
 	void Start () {
@@ -16,21 +18,8 @@ public class ScaleCanvasController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        handleKeyPress();
         moveScaledItems();
 	}
-
-    private void handleKeyPress()
-    {
-        if (Input.GetButtonDown("Info"))
-        {
-            isHidden = false;
-        }
-        if (Input.GetButtonUp("Info"))
-        {
-            isHidden = true;
-        }
-    }
 
     private void moveScaledItems()
     {
@@ -44,5 +33,21 @@ public class ScaleCanvasController : MonoBehaviour {
             TaskText.gameObject.SetActive(false);
             TextPanel.gameObject.SetActive(false);
         }
+    }
+
+    public void toggleInfoPanel()
+    {
+        isHidden = !isHidden;
+    }
+
+    public void pauseGame()
+    {
+        lastTimescale = Time.timeScale;
+        Time.timeScale = 0.0f;
+    }
+
+    public void unpauseGame()
+    {
+        Time.timeScale = lastTimescale;
     }
 }
