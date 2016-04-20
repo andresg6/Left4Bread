@@ -20,7 +20,7 @@ public class Spore : Base
                 
             }
         }
-        //Debug.Log("collided");
+        Debug.Log("collided");
         Destroy(this.gameObject);
     }
 	// Update is called once per frame

@@ -17,7 +17,7 @@ public class MushBoom : Character
         base.Start();
         maxHealth = 1;
         team = 1;
-       // direction = "right";
+        // direction = "right";
         health = maxHealth;
         interval = (double)1 / frequency;
         timeLeft = interval;
@@ -34,7 +34,7 @@ public class MushBoom : Character
             gameObject.SetActive(false);
         }
         timeLeft -= Time.deltaTime;
-       // Debug.Log(timeLeft);
+        // Debug.Log(timeLeft);
         if (timeLeft <= 0.0)
         {
             timeLeft = interval;
@@ -58,11 +58,12 @@ public class MushBoom : Character
     //}
 
     void Shoot()
-    {   
-         GameObject go = Instantiate(Spore);
-         go.GetComponent<Spore>().direction = this.direction;
-         Vector2 shootFrom = new Vector2(transform.position.x, transform.position.y + shootOffset);
-         go.transform.position = shootFrom;
+    {
+        GameObject go = Instantiate(Spore);
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), go.GetComponent<Collider2D>());
+        go.GetComponent<Spore>().direction = this.direction;
+        Vector2 shootFrom = new Vector2(transform.position.x, transform.position.y + shootOffset);
+        go.transform.position = shootFrom;
 
     }
 }
