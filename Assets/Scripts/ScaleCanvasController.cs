@@ -9,6 +9,7 @@ public class ScaleCanvasController : MonoBehaviour
     public RectTransform TextPanel;
 
     public RectTransform blackout;
+    public RectTransform pauseBread;
     public RectTransform pausePanel;
     public Text pauseText;
     public Button resume;
@@ -49,6 +50,7 @@ public class ScaleCanvasController : MonoBehaviour
     private void setPauseGroupActive(bool newActiveState)
     {
         blackout.gameObject.SetActive(newActiveState);
+        pauseBread.gameObject.SetActive(newActiveState);
         pausePanel.gameObject.SetActive(newActiveState);
         pauseText.gameObject.SetActive(newActiveState);
         resume.gameObject.SetActive(newActiveState);
