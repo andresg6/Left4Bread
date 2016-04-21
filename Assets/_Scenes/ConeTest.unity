@@ -232,7 +232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1001 &542624190
 Prefab:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22478626, guid: 31dddbcf62797f141aa8d4caad0e38ed, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22478626, guid: 31dddbcf62797f141aa8d4caad0e38ed, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -389,7 +389,34 @@ Transform:
   m_LocalScale: {x: 7, y: 1, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
+--- !u!1 &819090628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 889734184}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 819090629}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819090629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 889734184}
+  m_GameObject: {fileID: 819090628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1001 &889734184
 Prefab:
   m_ObjectHideFlags: 0
@@ -481,7 +508,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432722, guid: 918dfc6c243fb8e4fa7e1eea7bfaac66, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22432722, guid: 918dfc6c243fb8e4fa7e1eea7bfaac66, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -611,7 +638,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1001 &2042408675
 Prefab:
   m_ObjectHideFlags: 0
@@ -649,7 +676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 482306, guid: be9f0d79c8a569c46b841b43bc88ad22, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be9f0d79c8a569c46b841b43bc88ad22, type: 2}
