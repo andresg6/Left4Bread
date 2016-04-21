@@ -26,20 +26,15 @@ public class MainUIController : MonoBehaviour {
         {
             scc.toggleInfoPanel();
         }
+
+        if (Input.GetButtonDown("Pause"))
+        {
+            scc.togglePauseGame();
+        }
     }
 
     public void updatePlayerHealth(int remainingHealth, int maxHealth)
     {
         pcc.updatePlayerHealth(remainingHealth, maxHealth);
-    }
-
-    public void pauseGame()
-    {
-        scc.pauseGame();
-    }
-
-    public void unpauseGame()
-    {
-        scc.unpauseGame();
     }
 }

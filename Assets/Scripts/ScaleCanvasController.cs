@@ -2,24 +2,35 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ScaleCanvasController : MonoBehaviour {
+public class ScaleCanvasController : MonoBehaviour
+{
 
     public Text TaskText;
     public RectTransform TextPanel;
+
+    public RectTransform blackout;
+    public RectTransform pausePanel;
+    public Text pauseText;
+    public Button resume;
+    public Button quit;
+
     private bool isHidden;
 
     private float lastTimescale;
+    private bool isPaused;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         isHidden = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        isPaused = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         moveScaledItems();
-	}
+    }
 
     private void moveScaledItems()
     {
@@ -35,19 +46,43 @@ public class ScaleCanvasController : MonoBehaviour {
         }
     }
 
-    public void toggleInfoPanel()
+    private void setPauseGroupActive(bool newActiveState)
     {
-        isHidden = !isHidden;
+        blackout.gameObject.SetActive(newActiveState);
+        pausePanel.gameObject.SetActive(newActiveState);
+        pauseText.gameObject.SetActive(newActiveState);
+        resume.gameObject.SetActive(newActiveState);
+        quit.gameObject.SetActive(newActiveState);
     }
 
-    public void pauseGame()
+    private void pauseGame()
     {
         lastTimescale = Time.timeScale;
         Time.timeScale = 0.0f;
+        setPauseGroupActive(true);
     }
 
-    public void unpauseGame()
+    private void unpauseGame()
     {
         Time.timeScale = lastTimescale;
+        setPauseGroupActive(false);
+    }
+
+    public void togglePauseGame()
+    {
+        isPaused = !isPaused;
+        if(isPaused)
+        {
+            pauseGame();
+        }
+        else
+        {
+            unpauseGame();
+        }
+    }
+
+    public void toggleInfoPanel()
+    {
+        isHidden = !isHidden;
     }
 }
