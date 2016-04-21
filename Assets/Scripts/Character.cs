@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Character : Base 
 {
-    public float health;
-    public float maxHealth;
+    public int health;
+    public int maxHealth;
     public int team;
-    public float collisionDamage;
+    public int collisionDamage;
 
 	// Use this for initialization
 	public override void Start () 

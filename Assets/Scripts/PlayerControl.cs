@@ -22,7 +22,13 @@ public class PlayerControl : Character
     int y;
     Vector2 direction;
 
+    public bool alert = false;
+    public float alertPercentage = 0.0f;
+    public float alertStep = 10.0f;
+    public AudioSource alertMusic;
+
     private Animator anim;
+    public MainUIController mainui;
     private string lastMovement;
 
         //void Start()
@@ -33,8 +39,23 @@ public class PlayerControl : Character
     {
         base.Start();
         anim = this.GetComponent<Animator>();
+        mainui.updatePlayerHealth(health, maxHealth);
     }
- 
+
+    public override void Update()
+    {
+        base.Update();
+        if (alert)
+        {
+            alertMusic.enabled = true;
+            alertMusic.loop = true;
+        }
+        else
+        {
+            alertMusic.enabled = false;
+            alertMusic.loop = false;
+        }
+    }
   
 	void FixedUpdate ()
     {
@@ -87,10 +108,10 @@ public class PlayerControl : Character
             if (timehit + invincibleTime < Time.realtimeSinceStartup)
             {
                 invincible = false;
-                //player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                player.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
-	}
+    }
 
     IEnumerator Flasher()
     {
@@ -253,6 +274,11 @@ public class PlayerControl : Character
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
         }
+
+        else if (other.gameObject.tag == "Mushboom" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
+        {
+            other.gameObject.GetComponent<MushBoom>().health -= this.collisionDamage;
+        }
     }
 
     public override void OnCollisionStay2D(Collision2D other)
@@ -267,6 +293,11 @@ public class PlayerControl : Character
                 other.gameObject.GetComponent<conesearch2>().invincible = true;
                 other.gameObject.GetComponent<conesearch2>().timehit = Time.realtimeSinceStartup;
             }
+        }
+        
+        else if (other.gameObject.tag == "Mushboom" && other.gameObject.layer == LayerMask.NameToLayer("Enemies") && this.isAttacking)
+        {
+            other.gameObject.GetComponent<MushBoom>().health -= this.collisionDamage;
         }
     }
 }

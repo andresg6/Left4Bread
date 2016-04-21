@@ -32,26 +32,27 @@ public class conesearch2 : Character
             if (l.detected && !player.hidden)
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 99999, LayerMask.GetMask("Test"));
+                Debug.DrawRay(transform.position, player.transform.position - transform.position);
                 if (hit.collider.tag == "Player")
                 {
-                    //Debug.Log("RESET");
-                    alert = true;
-                    alertPercentage = 100.0f;
+                    //Debug.Log("DETECTED");
+                    player.alert = true;
+                    player.alertPercentage = 100.0f;
                     //Movement(player.transform);
                 }
             }
 
             else
             {
-                alertPercentage -= alertStep * Time.deltaTime;
+                player.alertPercentage -= player.alertStep * Time.deltaTime;
 
-                if (alertPercentage <= 0.0f)
+                if (player.alertPercentage <= 0.0f)
                 {
-                    alert = false;
-                    alertPercentage = 0.0f;
+                    player.alert = false;
+                    player.alertPercentage = 0.0f;
                 }
             }
-            if (alert)
+            if (player.alert)
             {
                 Movement(player.transform.position);
             }
@@ -104,8 +105,9 @@ public class conesearch2 : Character
             if (!other.gameObject.GetComponent<PlayerControl>().invincible)
             {
                 other.health -= this.collisionDamage;
-                other.gameObject.GetComponent<PlayerControl>().invincible = true;
+                player.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
+                player.mainui.updatePlayerHealth(player.health, player.maxHealth);
             }
         }
     }
@@ -118,8 +120,9 @@ public class conesearch2 : Character
             {
                // Debug.Log(player.health);
                 other.gameObject.GetComponent<PlayerControl>().health -= this.collisionDamage;
-                other.gameObject.GetComponent<PlayerControl>().invincible = true;
                 other.gameObject.GetComponent<PlayerControl>().timehit = Time.realtimeSinceStartup;
+                player.gameObject.GetComponent<PlayerControl>().invincible = true;
+                player.mainui.updatePlayerHealth(player.health, player.maxHealth);
             }
         }
     }
